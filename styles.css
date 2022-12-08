@@ -1,0 +1,80 @@
+.container {
+  position: fixed;
+  top: 20px;
+}
+.box {
+  text-align: center;
+  background: linear-gradient(
+    359.3deg,
+    rgb(196, 214, 252) 1%,
+    rgba(187, 187, 187, 0) 70.9%
+  );
+}
+form {
+  font-family: "Righteous", cursive;
+}
+input {
+  border: 1px solid #87a8d0;
+  border-radius: 5px;
+  box-shadow: 0px 8px 8px 0 rgb(37 39 89 / 8%);
+  transition: all 200ms ease-in-out;
+}
+
+.find {
+  padding: 1px 25px;
+}
+.find:hover {
+  background: #87a8d0;
+  color: white;
+  cursor: pointer;
+}
+
+.locat {
+  margin: 5px 1px 5px 50px;
+}
+
+h1 {
+  font-family: "Righteous", cursive;
+  margin: 5px;
+  padding: 20px 5px 10px;
+  color: black;
+  text-align: center;
+}
+h2 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  color: #586e89;
+  margin-bottom: 0px;
+}
+h3 {
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+.temp {
+  font-family: "Righteous", cursive;
+  text-align: center;
+  color: #586e89;
+  font-weight: lighter;
+}
+.forecast {
+  font-family: "Righteous", cursive;
+  text-align: center;
+}
+
+.quote {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 20px;
+  color: black;
+}
+
+.col-4 {
+  font-family: "Righteous", cursive;
+  color: #586e89;
+  font-weight: lighter;
+}
+.col {
+  font-family: "Righteous", cursive;
+}
+.date {
+  font-family: "Righteous", cursive;
+}
