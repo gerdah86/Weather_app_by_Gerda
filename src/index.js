@@ -110,3 +110,6 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let iconElement = document.querySelector("#icon-current");
+iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.png`);
