@@ -78,6 +78,11 @@ function showTemperature(response) {
   )}°C `;
   document.querySelector("#des").innerHTML =
     response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon-current");
+  iconElement.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.png`
+  );
 }
 
 function submitting(event) {
@@ -110,6 +115,3 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-let iconElement = document.querySelector("#icon-current");
-iconElement.setAttribute("src", `images/${response.data.weather[0].icon}.png`);
