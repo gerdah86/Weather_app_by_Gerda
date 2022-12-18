@@ -58,7 +58,7 @@ searchForm.addEventListener("submit", search);
 function showTemperature(response) {
   console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = `${Math.round(
+  document.querySelector("#celsius-link").innerHTML = `${Math.round(
     response.data.main.temp
   )}°C `;
   document.querySelector(
@@ -83,6 +83,7 @@ function showTemperature(response) {
     "src",
     `images/${response.data.weather[0].icon}.png`
   );
+  celsiusTemperature = response.data.main.temp;
 }
 
 function submitting(event) {
@@ -115,3 +116,32 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+/// Fahrenheit
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#celsius-link");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#celsius-link");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
+
+search("Malaga");

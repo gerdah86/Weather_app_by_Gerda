@@ -79,3 +79,7 @@ h3 {
   font-family: "Righteous", cursive;
 }
 .creator {font family: monospace;}
+
+.active {
+    text-decoration: none;
+      cursor: default;}
