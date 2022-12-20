@@ -117,6 +117,35 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+////// forescast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class=row>`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+
+                        ${day}
+                        </br>
+                        <img src="images/fewclouds.svg" width="30" />
+                        </br>
+                        <strong>+22°C</strong>
+                        </br>
+                        +17°C
+
+                    </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 /// Fahrenheit
 
 function showFahrenheit(event) {
