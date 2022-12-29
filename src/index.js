@@ -36,6 +36,33 @@ function formatDate(date) {
   let day = days[dayIndex];
   return `${currentDate} ${currentMonth}, ${day} ${hours}:${minutes}`;
 }
+function showQuote(description) {
+  let conditions = ["clear", "clouds", "rain", "thunderstorm", "snow", "mist"];
+  let quote = document.querySelector("#quote");
+  if (description(conditions[0]) > -1) {
+    quote.innerHTML =
+      "Some old fashioned things like fresh air and sunshine are hard to beat.” – Laura Ingalls Wilder";
+  }
+  if (description(conditions[1]) > -1) {
+    quote.innerHTML = "Be the sun breaking through the clouds. - A.D. Posey";
+  }
+  if (description(conditions[2]) > -1) {
+    quote.innerHTML =
+      "Do not be angry with the rain; it simply does not know how to fall upwards. – Vladimir Nabokov";
+  }
+  if (description(conditions[3]) > -1) {
+    quote.innerHTML =
+      "Thunderstorms are as much our friends as the sunshine. ― Criss Jami";
+  }
+  if (description(conditions[4]) > -1) {
+    quote.innerHTML =
+      "The snow is sparkling like a million little suns. - Lama Willa";
+  }
+  if (description(conditions[5]) > -1) {
+    quote.innerHTML =
+      "The mist hung in the air like a prancing unicorn. - Graham Joyce";
+  }
+}
 
 function search(city) {
   let units = "metric";
@@ -79,6 +106,9 @@ function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
+
+  let description = response.data.weather[0].description;
+  showQuote(description);
 }
 function submitting(event) {
   event.preventDefault();
@@ -103,6 +133,7 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
 ////// forescast
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -127,7 +158,7 @@ function displayForecast(response) {
                         </br>
                         <strong>${Math.round(forecastDay.temp.max)}°C</strong>
                         </br>
-                        ${Math.round(forecastDay.temp.min)}C
+                        ${Math.round(forecastDay.temp.min)}°C
                     </div>
 `;
     }
