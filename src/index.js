@@ -37,30 +37,168 @@ function formatDate(date) {
   return `${currentDate} ${currentMonth}, ${day} ${hours}:${minutes}`;
 }
 function showQuote(description) {
-  let conditions = ["clear", "clouds", "rain", "thunderstorm", "snow", "mist"];
+  let conditions = [
+    "thunderstorm with light rain",
+    "thunderstorm with rain",
+    "thunderstorm with heavy rain",
+    "light thunderstorm",
+    "thunderstorm",
+    "heavy thunderstorm",
+    "ragged thunderstorm",
+    "thunderstorm with light drizzle",
+    "thunderstorm with drizzle",
+    "thunderstorm with heavy drizzle ",
+    "light intensity drizzle",
+    "drizzle",
+    "heavy intensity drizzle",
+    "light intensity drizzle rain",
+    "drizzle rain",
+    "heavy intensity drizzle rain",
+    "shower rain and drizzle",
+    "heavy shower rain and drizzle",
+    "shower drizzle",
+    "light rain",
+    "moderate rain",
+    "heavy intensity rain",
+    "very heavy rain",
+    "extreme rain",
+    "freezing rain",
+    "light intensity shower rain",
+    "shower rain",
+    "heavy intensity shower rain",
+    "ragged shower rain",
+    "light snow",
+    "Snow",
+    "Heavy snow",
+    "Sleet",
+    "Light shower sleet",
+    "Shower sleet",
+    "Light rain and snow",
+    "Rain and snow",
+    "Light shower snow",
+    "Shower snow",
+    "Heavy shower snow",
+    "mist",
+    "Smoke",
+    "Haze",
+    "sand/ dust whirls",
+    "fog",
+    "sand",
+    "dust",
+    "volcanic ash",
+    "squalls",
+    "tornado",
+    "clear sky",
+    "few clouds",
+    "scattered clouds",
+    "broken clouds",
+    "overcast clouds",
+  ];
   let quote = document.querySelector("#quote");
-  if (description(conditions[0]) > -1) {
+  console.log({ description });
+  if (
+    description === conditions[0] ||
+    conditions[1] ||
+    conditions[2] ||
+    conditions[5]
+  ) {
     quote.innerHTML =
-      "Some old fashioned things like fresh air and sunshine are hard to beat.” – Laura Ingalls Wilder";
+      "Every storm runs out of rain, just like every dark night turns into day. - Gary Allan Running";
   }
-  if (description(conditions[1]) > -1) {
-    quote.innerHTML = "Be the sun breaking through the clouds. - A.D. Posey";
-  }
-  if (description(conditions[2]) > -1) {
-    quote.innerHTML =
-      "Do not be angry with the rain; it simply does not know how to fall upwards. – Vladimir Nabokov";
-  }
-  if (description(conditions[3]) > -1) {
+  if (
+    description === conditions[3] ||
+    conditions[4] ||
+    conditions[6] ||
+    conditions[7] ||
+    conditions[8] ||
+    conditions[9]
+  ) {
     quote.innerHTML =
       "Thunderstorms are as much our friends as the sunshine. ― Criss Jami";
   }
-  if (description(conditions[4]) > -1) {
+  if (
+    description === conditions[10] ||
+    conditions[11] ||
+    conditions[12] ||
+    conditions[13] ||
+    conditions[14] ||
+    conditions[15] ||
+    conditions[16] ||
+    conditions[17] ||
+    conditions[18] ||
+    conditions[48] ||
+    conditions[49]
+  ) {
+    quote.innerHTML =
+      "If people were like rain, I was like drizzle and she was a hurricane. - John Green";
+  }
+  if (
+    description === conditions[19] ||
+    conditions[20] ||
+    conditions[21] ||
+    conditions[22] ||
+    conditions[23] ||
+    conditions[24] ||
+    conditions[25] ||
+    conditions[26] ||
+    conditions[27] ||
+    conditions[28]
+  ) {
+    quote.innerHTML =
+      "Do not be angry with the rain; it simply does not know how to fall upwards. – Vladimir Nabokov";
+  }
+  if (
+    description === conditions[29] ||
+    conditions[30] ||
+    conditions[31] ||
+    conditions[37] ||
+    conditions[38] ||
+    conditions[39]
+  ) {
     quote.innerHTML =
       "The snow is sparkling like a million little suns. - Lama Willa";
   }
-  if (description(conditions[5]) > -1) {
+  if (
+    description === conditions[32] ||
+    conditions[33] ||
+    conditions[34] ||
+    conditions[35] ||
+    conditions[36]
+  ) {
+    quote.innerHTML =
+      "Then come the wild weather, come sleet or come snow, we will stand by each other, however it blow. - Simon Dach";
+  }
+  if (
+    description === conditions[32] ||
+    conditions[40] ||
+    conditions[41] ||
+    conditions[42] ||
+    conditions[44]
+  ) {
     quote.innerHTML =
       "The mist hung in the air like a prancing unicorn. - Graham Joyce";
+  }
+  if (
+    description === conditions[32] ||
+    conditions[43] ||
+    conditions[45] ||
+    conditions[46] ||
+    conditions[36]
+  ) {
+    quote.innerHTML =
+      "To start a journey in a sandstorm is good luck. - Michael Ondaatje";
+  }
+  if (description === conditions[32] || conditions[50]) {
+    quote.innerHTML =
+      "Some old fashioned things like fresh air and sunshine are hard to beat. – Laura Ingalls Wilder";
+  }
+  if (
+    description === conditions[51] ||
+    conditions[52] ||
+    conditions[53] ||
+    conditions[54]
+  ) {
+    quote.innerHTML = "Be the sun breaking through the clouds. - A.D. Posey";
   }
 }
 
@@ -106,7 +244,6 @@ function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
-
   let description = response.data.weather[0].description;
   showQuote(description);
 }
