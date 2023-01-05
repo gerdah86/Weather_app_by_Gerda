@@ -29,8 +29,6 @@ input {
   cursor: pointer;
 }
 
-
-
 h1 {
   font-family: "Righteous", cursive;
   margin: 5px;
@@ -76,8 +74,9 @@ h3 {
 .date {
   font-family: "Righteous", cursive;
 }
-.creator {font family: monospace;}
-
-.active {
-    text-decoration: none;
-      cursor: default;}
+.creator {
+  font-family: monospace;
+}
+.locat:hover .overlay {
+  opacity: 1;
+}
